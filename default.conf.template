@@ -3,7 +3,7 @@ server {
    
   listen $PORT default_server;
 
-  location /games {
+  location https://algebrapracticeproblems.herokuapp.com/games {
     root   /usr/share/nginx/html;
     index  index.html index.htm;
   }
