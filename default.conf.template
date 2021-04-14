@@ -7,11 +7,10 @@ server {
     root   /usr/share/nginx/html;
     index  algebra.html algebra.htm;
   }
-  location /games {
+  location /textbooks {
     
     
-    alias /usr/share/nginx.html/;
-    index index.html;
-    try_files $uri $uri/ index.html =404;
+   
+     proxy_pass https://example-backend-1234.herokuapp.com/;
   }
 }
