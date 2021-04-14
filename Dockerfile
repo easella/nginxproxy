@@ -1,10 +1,7 @@
-# Choose default image for dockerfile
-FROM node:10
-# Define the directory to which files will be copied to in the docker image
-WORKDIR /usr/src/app
-# Copy everything in current folder to /usr/src/app in Docker image
-COPY . .
-# Expose port picked by Heroku. Otherwise we couldn’t connect to the server running inside a docker container
-EXPOSE $PORT
-# npm run start
-CMD [ “npm”, “run”, “start” ]
+FROM nginx:1.19.6
+
+COPY default.conf.template /etc/nginx/conf.d/default.conf.template
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY static-html /usr/share/nginx/html
+
+CMD /bin/bash -c "envsubst '\$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf" && nginx -g 'daemon off;'
