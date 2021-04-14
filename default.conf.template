@@ -3,8 +3,9 @@ server {
    
   listen $PORT default_server;
 
-  location https://algebrapracticeproblems.herokuapp.com/games {
+  location games {
     root   /usr/share/nginx/html;
+    proxy_pass https://algebrapracticeproblems.herokuapp.com/games
     index  index.html index.htm;
   }
    location / {
