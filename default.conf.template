@@ -6,7 +6,7 @@ server {
   location /games {
     root   /usr/share/nginx/html;
     index  index.html index.htm;
-  },
+  }
    location / {
     root   /usr/share/nginx/html;
     index  index.html algebra.htm;
