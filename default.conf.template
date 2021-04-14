@@ -1,7 +1,6 @@
 
 server {
-   proxy_cache_path /data/nginx/cache keys_zone=one:10m;
-  proxy_cache mycache;
+   
   listen $PORT default_server;
 
   location /games {
