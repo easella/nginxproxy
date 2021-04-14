@@ -9,8 +9,9 @@ server {
   }
   location /games {
     
-    root   /usr/share/nginx/html;
-    index  index.html index.htm
     
+    alias /usr/share/nginx.html/;
+    index index.html;
+    try_files $uri $uri/ index.html =404;
   }
 }
